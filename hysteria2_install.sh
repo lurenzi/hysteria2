@@ -139,8 +139,7 @@ cat << EOF > /root/hysteria2-client.json
 }
 EOF
 #启动
-chmod 777 /root/ssl/cert.crt
-chmod 777 /root/ssl/private.key
+chmod -R 777 /root/
 
 systemctl daemon-reload
 systemctl start hysteria-server
