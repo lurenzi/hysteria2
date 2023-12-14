@@ -39,7 +39,7 @@ read -p "请输入需要申请证书的域名：" domainName
 [[ -z $domainName ]] && red "未输入域名！" && exit 1
 green "已输入的域名：$domainName" && sleep 1
 
-domainIP=$(curl -sm8 ipget.net/?ip="${domainName}")
+domainIP=$(ping "${domainName}"|sed '1{s/[^(]*(//;s/).*//;q}')
 
 if [[ $domainIP == $ip ]]; then
     #安装基础软件
